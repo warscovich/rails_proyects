@@ -2,6 +2,12 @@
 
 <h2>Ingresa tu peso para saber la información de tu peso ideal</h2>
 
-Ingresa tu altura: <input type="text" id="height" value="<%=@altura%>"/>
-
-<br/>
+<%= form_tag("/calcular_peso", method: "get") do %>
+  <%= label_tag(:label_system, "Selecciona tu sistema de medida:") %>
+  <%=select_tag(:system,options_for_select([["Centimetros", "Centimetros"], ["Pulgadas", "Pulgadas"]]))%>
+  <br/>
+  <%= label_tag(:altura, "Ingresa tu altura:  :") %>
+  <%= text_field_tag(:height) %>
+  <br/>
+  <%= submit_tag("Calcular el Peso!", id: "GetWeight") %>
+<% end %>

@@ -6,8 +6,8 @@ When(/^I fill in "(.*?)" with my height which is (\d+) inches$/) do |height_elem
   fill_in height_element, with: inches
 end
 
-When(/^I press "(.*?)" button$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I press "(.*?)" button$/) do |button|
+  click_on button
 end
 
 Then(/^I should see my ideal weight \(BMI\) in pounds or kilograms$/) do
