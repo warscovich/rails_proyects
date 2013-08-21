@@ -1,9 +1,9 @@
 Given(/^I am in the Pesomatic weight calculator page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/calcular_peso/index'
 end
 
-When(/^I fill in "(.*?)" with my height which is (\d+) inches$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When(/^I fill in "(.*?)" with my height which is (\d+) inches$/) do |height_element, inches|
+  fill_in height_element, with: inches
 end
 
 When(/^I press "(.*?)" button$/) do |arg1|
