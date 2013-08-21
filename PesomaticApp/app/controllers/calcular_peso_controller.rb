@@ -5,7 +5,7 @@ class CalcularPesoController < ApplicationController
   end
   
   def calcular_peso_bmi
-    @formulas["bmi"] = (()*(@height * @height))/703
+    @formulas["bmi"] = ((10)*(@height * @height))/703
     #@system
   end
   
