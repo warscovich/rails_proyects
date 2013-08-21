@@ -2,7 +2,7 @@
 
 <h2>Ingresa tu peso para saber la información de tu peso ideal</h2>
 
-<%= form_tag("/calcular_peso", method: "get") do %>
+<%= form_tag("/calcular_peso_bmi", method: "get") do %>
   <%= label_tag(:label_system, "Selecciona tu sistema de medida:") %>
   <%=select_tag(:system,options_for_select([["Centimetros", "Centimetros"], ["Pulgadas", "Pulgadas"]]))%>
   <br/>
