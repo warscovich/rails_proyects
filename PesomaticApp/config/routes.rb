@@ -7,7 +7,7 @@ PesomaticApp::Application.routes.draw do
   #root :to => redirect('/calculadora')
   
   get "calcular_peso/index"
-  get "calcular_peso/calcular_peso_bmi" => 'calcular_peso#index'
+  get 'calcular_peso/calcular_peso', to: 'calcular_peso#calcular_peso'
   root :to => redirect('/calcular_peso/index') 
 
   # You can have the root of your site routed with "root"

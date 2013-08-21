@@ -2,7 +2,7 @@
 
 <h2>Ingresa tu peso para saber la información de tu peso ideal</h2>
 
-<%= form_tag("/calcular_peso/calcular_peso_bmi", method: "get") do %>
+<%= form_tag("/calcular_peso/calcular_peso", method: "get") do %>
   <%= label_tag(:label_system, "Selecciona tu sistema de medida:") %>
   <%=select_tag(:system,options_for_select([["Centimetros", "Centimetros"], ["Pulgadas", "Pulgadas"]]))%>
   <br/>
@@ -10,4 +10,14 @@
   <%= text_field_tag(:height) %>
   <br/>
   <%= submit_tag("Calcular el Peso!", id: "GetWeight") %>
+  <br/>
+  <%@formulas.each {|llave ,valor|%>
+  	
+	Para el metodo <%=llave%>  el peso ideal en libras es:
+	<%=label_tag(:label_valor,valor)%> <br/>
+	Para el metodo <%=llave%>  el peso ideal en kilogramos es: 
+	<%=label_tag(:label_valor_kilos,(valor * 0.45359237))%><br/>
+	<br/>
+	<br/>  	
+  <%}%>
 <% end %>
