@@ -1,23 +1,63 @@
-<h1>Aplicación de Calcular Peso Ideal</h1>
+<!DOCTYPE html>
+<html>
+<body>
 
-<h2>Ingresa tu peso para saber la información de tu peso ideal</h2>
+<%= stylesheet_link_tag 'application', 'thickbox' %>
+<div id="container" style="width:900px">
 
-<%= form_tag("/calcular_peso/calcular_peso", method: "get") do %>
+<div id="header" >
+<h1 style="margin-bottom:0;">Peso Ideal!</h1>
+</div>
+
+<div id="menu" style="height:500px;width:500px;float:left;">
+<%= form_tag("/calcular_peso/calcular_peso", method: "get", :id => "calc") do %>
+<h2>Ingresa los siguientes datos para encontrar tu peso ideal</h2>
+  <%= label_tag(:label_genre, "Selecciona tu genero:") %>
+  <%=select_tag(:genre,options_for_select([["Masculino", "Masculino"], ["Femenino", "Femenino"]]))%>
+  <br/>
   <%= label_tag(:label_system, "Selecciona tu sistema de medida:") %>
   <%=select_tag(:system,options_for_select([["Centimetros", "Centimetros"], ["Pulgadas", "Pulgadas"]]))%>
   <br/>
-  <%= label_tag(:altura, "Ingresa tu altura:  :") %>
+  <%= label_tag(:altura, "Ingresa tu altura:") %>
   <%= text_field_tag(:height) %>
   <br/>
   <%= submit_tag("Calcular el Peso!", id: "GetWeight") %>
   <br/>
+    <br/>
+  <%=image_tag("pelicula6_14.png")%>
+</div>
+
+<div id="content" style="height:500px;width:400px;float:left;">
   <%@formulas.each {|llave ,valor|%>
   	
-	Para el metodo <%=llave%>  el peso ideal en libras es:
-	<%=label_tag(:label_valor,valor)%> <br/>
-	Para el metodo <%=llave%>  el peso ideal en kilogramos es: 
-	<%=label_tag(:label_valor_kilos,(valor * 0.45359237))%><br/>
+	<b><%=llave%></b> <br/>
+	Libras:
+	<%=label_tag(:label_valor,"%5.1f" % valor)%> <br/>
+	Kilogramos: 
+	<%=label_tag(:label_valor_kilos,"%5.1f" %(valor * 0.45359237))%><br/>
 	<br/>
 	<br/>  	
-  <%}%>
+  <%}%></div>
+
+<div id="footer" style="clear:both;text-align:center;">
+TopClass</div>
+
+</div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% end %>
