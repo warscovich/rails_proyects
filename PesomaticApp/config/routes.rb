@@ -2,9 +2,12 @@ PesomaticApp::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
-  #Redireccion a pagina ce peso
-  resources :calculadora
-  root :to => redirect('/calculadora') 
+  #Redireccion a pagina de peso
+  #resources :calculadora
+  #root :to => redirect('/calculadora')
+  
+  get "calcular_peso/index"
+  root :to => redirect('/calcular_peso/index') 
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
